@@ -9,7 +9,7 @@ const Hero: React.FC = React.memo(() => {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="text-center md:text-left">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D1155] mb-4 md:mb-6">
-              CV et lettre de motivation personnalisés en 24h !
+              Nos experts rédigent votre CV et lettre de motivation en moins de 24h !
             </h1>
             <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
               L&apos;Expert vous offre des CV et lettres de motivation sur mesure, rédigés par des professionnels, pour
