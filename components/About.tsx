@@ -26,7 +26,7 @@ export default function About() {
           <h3 className="text-xl font-semibold text-[#2D1155] mb-4">Suivez-nous sur les réseaux sociaux</h3>
           <div className="flex flex-wrap justify-center gap-6">
             <a
-              href="https://wa.me/yourwhatsappnumber"
+              href="https://wa.me/22897864808"
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200"

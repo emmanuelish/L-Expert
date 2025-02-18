@@ -2,6 +2,11 @@ import { Clock, FileCheck, Target, Users } from "lucide-react"
 
 const features = [
   {
+    icon: Users,
+    title: "Rédigé par des experts",
+    description: "Notre équipe de rédacteurs professionnels connaît les attentes des recruteurs dans votre secteur.",
+  },
+  {
     icon: Clock,
     title: "Livraison en 24 heures",
     description:
@@ -19,11 +24,6 @@ const features = [
     description:
       "Nos documents sont optimisés pour passer les systèmes de suivi des candidatures (ATS) utilisés par de nombreuses entreprises.",
   },
-  {
-    icon: Users,
-    title: "Rédigé par des experts",
-    description: "Notre équipe de rédacteurs professionnels connaît les attentes des recruteurs dans votre secteur.",
-  },
 ]
 
 export default function Features() {
@@ -32,12 +32,8 @@ export default function Features() {
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-[#2D1155] mb-3 md:mb-4 text-center">
-            Pourquoi choisir nos services de rédaction de CV et lettre de motivation ?
+            Pourquoi choisir L&apos;Expert pour rédiger votre CV ou votre lettre de motivation ?
           </h2>
-          <p className="text-gray-600 text-center text-sm md:text-base">
-            Chez L&apos;Expert, nous comprenons l&apos;importance d&apos;un CV et d&apos;une lettre de motivation percutants. Voici ce qui
-            rend notre service unique :
-          </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {features.map((feature, index) => (

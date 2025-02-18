@@ -15,7 +15,9 @@ export default function Header() {
             <Link href="#testimonials" className="text-gray-600 hover:text-gray-800">
               Testimonials
             </Link>
-            <Link href="#contact" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            <Link href="#contact" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              onClick={() => window.open("https://wa.me/22897864808", "_blank")}
+            >
               Contact Us
             </Link>
           </div>

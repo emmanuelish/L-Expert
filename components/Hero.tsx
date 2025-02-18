@@ -15,7 +15,9 @@ const Hero: React.FC = React.memo(() => {
               L&apos;Expert vous offre des CV et lettres de motivation sur mesure, rédigés par des professionnels, pour
               booster votre carrière. Recevez vos documents en moins de 24 heures !
             </p>
-            <Button className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-6 md:px-8 py-4 md:py-6 rounded-full text-base md:text-lg w-full md:w-auto">
+            <Button className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-6 md:px-8 py-4 md:py-6 rounded-full text-base md:text-lg w-full md:w-auto"
+              onClick={() => window.open("https://wa.me/22897864808", "_blank")}
+            >
               Commandez maintenant
             </Button>
           </div>

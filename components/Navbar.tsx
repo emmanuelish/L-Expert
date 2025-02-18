@@ -53,7 +53,11 @@ const Navbar = () => {
             <Link href="/login" className="text-gray-600 hover:text-gray-900">
               Se connecter
             </Link>
-            <Button className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-6 py-2 rounded-full">Commander</Button>
+            <Button className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-6 py-2 rounded-full"
+              onClick={() => window.open("https://wa.me/22897864808", "_blank")}
+            >
+              Commander
+            </Button>
           </div>
         </div>
       </div>

@@ -4,20 +4,20 @@ import { Check } from "lucide-react"
 
 const features = [
   {
-    category: "Design intuitif",
-    items: ["Créez facilement vos cours", "Thèmes, fichiers, etc."],
+    category: "Livraison en 24 heures",
+    items: ["CV et lettre de motivation personnalisés", "Parfait pour les candidatures urgentes"],
   },
   {
-    category: "Templates personnalisables",
-    items: ["Adaptez chaque cours à vos besoins spécifiques"],
+    category: "Documents sur mesure",
+    items: ["Création spécifique pour vous et le poste visé", "Documents sur mesure"],
   },
   {
-    category: "Branding sur mesure",
-    items: ["Ajoutez votre logo, vos couleurs et personnalisez votre site"],
+    category: "Optimisé pour les ATS",
+    items: ["Passage des systèmes de suivi des candidatures", "Augmentation des chances d'être sélectionné"],
   },
   {
-    category: "Paiements accessibles",
-    items: ["Acceptez les cartes bancaires, PayPal Money et bien plus"],
+    category: "Rédigé par des experts",
+    items: ["Équipe de rédacteurs professionnels", "Connaissance des attentes des recruteurs"],
   },
 ]
 

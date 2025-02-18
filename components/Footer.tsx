@@ -94,10 +94,10 @@ const Footer: FC = () => {
             <h3 className="text-lg font-semibold mb-4">CONTACT</h3>
             <ul className="space-y-2">
               <li className="text-gray-300">Email: contact@lexpert.com</li>
-              <li className="text-gray-300">Tél: +229 67 68 03 03 03</li>
+              <li className="text-gray-300">Tél: +228 97 86 48 04</li>
               <li className="flex space-x-4 mt-4">
                 <a
-                  href="https://wa.me/yourwhatsappnumber"
+                  href="https://wa.me/22897864808"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transform hover:scale-110 transition-transform duration-200"
