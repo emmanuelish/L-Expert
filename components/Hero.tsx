@@ -4,7 +4,7 @@ import React from "react"
 
 const Hero: React.FC = React.memo(() => {
   return (
-    <section className="bg-[#F3EEFF] relative overflow-hidden">
+    <section className="bg-[#E3D0FF] relative overflow-hidden">
       <div className="container mx-auto px-4 py-8 md:py-16">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="text-center md:text-left">
@@ -30,7 +30,7 @@ const Hero: React.FC = React.memo(() => {
                 objectFit="contain"
                 priority
                 loading="eager"
-                className="rounded-2xl"
+                className="rounded-3xl"
               />
             </div>
             <div className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 md:px-4 md:py-2 shadow-lg flex items-center gap-2">

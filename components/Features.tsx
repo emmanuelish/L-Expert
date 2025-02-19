@@ -28,7 +28,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="bg-[#FFE8CC] py-8 md:py-16">
+    <section id="features" className="bg-[#FFE9B7] py-8 md:py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-[#2D1155] mb-3 md:mb-4 text-center">
