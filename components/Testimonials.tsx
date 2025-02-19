@@ -41,25 +41,28 @@ const Testimonials = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center text-center">
             <h4 className="text-2xl font-semibold text-gray-900">Témoignages</h4>
-            <h2 className="text-4xl font-extrabold mt-2">Découvrez ce que nos clients disent de nous </h2>
+            <h2 className="text-4xl font-extrabold mt-2">Découvrez ce que nos clients disent de nous</h2>
           </div>
           <div className="flex flex-wrap gap-8 justify-center mt-12">
             {testimonialsData.map(({ id, name, location, image, text, title }) => (
-              <div key={id} className={`bg-white shadow-lg w-full max-w-md p-12 relative rounded-lg ${id === 2 ? 'hidden md:block' : ''}`}>
-                <span className="text-red-500 text-6xl absolute top-8 right-12">
-                  <IconQuote width={60} height={60} />
+              <div 
+                key={id} 
+                className="bg-white shadow-lg w-full md:max-w-md p-8 md:p-12 relative rounded-lg"
+              >
+                <span className="text-red-500 text-6xl absolute top-4 right-6 md:top-8 md:right-12">
+                  <IconQuote width={50} height={50} />
                 </span>
-                <div className="flex items-center gap-4 mb-6">
+                <div className="flex items-center gap-4 mb-4 md:mb-6">
                   <Image src={image} alt="user_img" width={56} height={56} className="rounded-full" />
                   <div>
                     <h4 className="text-lg font-semibold">{name}</h4>
                     <p className="text-gray-500">{location}</p>
                   </div>
                 </div>
-                <h4 className="font-bold text-xl mb-4 text-red-500">
+                <h4 className="font-bold text-lg md:text-xl mb-3 md:mb-4 text-red-500">
                   {title}
                 </h4>
-                <p className="text-xl font-medium text-gray-900">&quot;{text}&quot;</p>
+                <p className="text-lg md:text-xl font-medium text-gray-900">&quot;{text}&quot;</p>
               </div>
             ))}
           </div>
