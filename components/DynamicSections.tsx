@@ -6,7 +6,7 @@ import Testimonials from "./Testimonials";
 
 const TrustLogos = dynamic(() => import("./TrustLogos"), { ssr: false });
 const Features = dynamic(() => import("./Features"), { ssr: false });
-const EverythingYouNeed = dynamic(() => import("./EverythingYouNeed"), { ssr: false });
+const HowItWorks = dynamic(() => import("./HowItWorks"), { ssr: false });
 const Solutions = dynamic(() => import("./Solutions"), { ssr: false });
 const CtaSection = dynamic(() => import("./CtaSection"), { ssr: false });
 const About = dynamic(() => import("./About"), { ssr: false });
@@ -19,7 +19,7 @@ export default function DynamicSections() {
       <Features />
       <TrustLogos />
       <Testimonials />
-      <EverythingYouNeed />
+      <HowItWorks />
       <Solutions />
       <CtaSection />
       <About />

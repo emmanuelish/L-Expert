@@ -1,5 +1,6 @@
 import type { FC } from "react"
 import { Button } from "@/components/ui/button"
+import AnimatedSection from "./AnimatedSection"
 
 const CtaSection: FC = () => {
   return (
@@ -26,18 +27,20 @@ const CtaSection: FC = () => {
 
       {/* Content */}
       <div className="relative  mx-auto px-4 text-center">
-        <div className=" mx-auto px-4 max-w-[500px] max-h-[300px]">
-          <div className="bg-[#1D0B3B] rounded-xl p-4 md:p-8 text-center">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
-              Boostez votre carrière avec nos CV personnalisés
-            </h2>
-            <Button className="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white px-6 md:px-8 py-4 md:py-6 rounded-full text-base md:text-lg w-full sm:w-auto"
-              onClick={() => window.open("https://wa.me/22897864808", "_blank")}
-            >
-              Commander mon CV
-            </Button>
+        <AnimatedSection direction="left">
+          <div className=" mx-auto px-4 max-w-[500px] max-h-[300px]">
+            <div className="bg-[#1D0B3B] rounded-xl p-4 md:p-8 text-center">
+              <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
+                Boostez votre carrière avec nos CV personnalisés
+              </h2>
+              <Button className="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white px-6 md:px-8 py-4 md:py-6 rounded-full text-base md:text-lg w-full sm:w-auto"
+                onClick={() => window.open("https://wa.me/22897864808", "_blank")}
+              >
+                Commander mon CV
+              </Button>
+            </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   )

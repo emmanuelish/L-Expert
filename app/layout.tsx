@@ -4,6 +4,7 @@ import "./globals.css";
 import type React from "react";
 import { Analytics } from "@vercel/analytics/react";
 import DynamicNavbar from "@/components/DynamicNavbar";
+import DynamicWhatsAppButton from "@/components/DynamicWhatsAppButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={`${inter.className} overflow-x-hidden`}>
         <DynamicNavbar />
         <div className="pt-16">{children}</div>
+        <DynamicWhatsAppButton />
         <Analytics />
       </body>
     </html>
