@@ -77,7 +77,7 @@ const HowItWorks: FC = () => {
         </div>
 
         <AnimatedSection direction="left">
-          <div className="mt-12 text-center">
+          <div className="mt-12 text-center flex justify-center">
             <Button
               className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-4 sm:px-8 py-4 rounded-full text-base sm:text-lg w-full sm:w-auto h-auto min-h-[48px] flex items-center justify-center whitespace-normal"
               onClick={() => window.open("https://wa.me/22897864808", "_blank")}
