@@ -13,22 +13,22 @@ const Footer: FC = () => {
             <h3 className="text-lg font-semibold mb-4">ENTREPRISE</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   À propos de nous
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   Nous contacter
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   Carrières
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   Blog
                 </Link>
               </li>
@@ -40,22 +40,22 @@ const Footer: FC = () => {
             <h3 className="text-lg font-semibold mb-4">LÉGAL</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/terms" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   Conditions d&apos;utilisation
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   Politique de confidentialité
                 </Link>
               </li>
               <li>
-                <Link href="/gdpr" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   RGPD
                 </Link>
               </li>
               <li>
-                <Link href="/cookies" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   Cookies
                 </Link>
               </li>
@@ -67,22 +67,22 @@ const Footer: FC = () => {
             <h3 className="text-lg font-semibold mb-4">NOS SERVICES</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/cv" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   Rédaction de CV
                 </Link>
               </li>
               <li>
-                <Link href="/cover-letter" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   Lettre de motivation
                 </Link>
               </li>
               <li>
-                <Link href="/linkedin" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   Optimisation LinkedIn
                 </Link>
               </li>
               <li>
-                <Link href="/career-coaching" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white">
                   Coaching carrière
                 </Link>
               </li>
