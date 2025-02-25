@@ -8,6 +8,12 @@ const features = [
     description: "Notre équipe de rédacteurs professionnels connaît les attentes des recruteurs dans votre secteur.",
   },
   {
+    icon: Target,
+    title: "Tarifs Moins Chers",
+    description:
+      "Nos tarifs sont les moins chers du marché ! Chez nous, tout le monde peut s’offrir un CV de qualité sans se ruiner.",
+  },
+  {
     icon: Clock,
     title: "Livraison en 24 heures",
     description:
@@ -18,12 +24,6 @@ const features = [
     title: "Documents sur mesure",
     description:
       "Chaque CV et lettre de motivation est créé spécifiquement pour vous et le poste visé, mettant en valeur vos compétences uniques.",
-  },
-  {
-    icon: Target,
-    title: "Optimisé pour les ATS",
-    description:
-      "Nos documents sont optimisés pour passer les systèmes de suivi des candidatures (ATS) utilisés par de nombreuses entreprises.",
   },
 ]
 
@@ -46,7 +46,7 @@ export default function Features() {
               >
                 <div className="bg-white p-4 md:p-6 rounded-xl shadow-sm">
                   <feature.icon className="w-6 h-6 md:w-8 md:h-8 text-[#2D1155] mb-3 md:mb-4" />
-                  <h3 className="text-lg md:text-xl font-semibold text-[#2D1155] mb-2 md:mb-3">{feature.title}</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-[#2D1155] mb-2 md:mb-3">{feature.title}</h3>
                   <p className="text-gray-600 text-sm md:text-base">{feature.description}</p>
                 </div>
               </AnimatedSection>

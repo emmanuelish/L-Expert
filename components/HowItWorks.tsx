@@ -80,7 +80,7 @@ const HowItWorks: FC = () => {
           <div className="mt-12 text-center">
             <Button
               className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-8 py-4 rounded-full text-lg"
-              onClick={() => window.open("https://wa.me/22897864804", "_blank")}
+              onClick={() => window.open("https://wa.me/22897864808", "_blank")}
             >
               Commencer maintenant sur WhatsApp
             </Button>

@@ -37,10 +37,6 @@ const Hero: React.FC = React.memo(() => {
                   className="rounded-3xl"
                 />
               </div>
-              <div className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 md:px-4 md:py-2 shadow-lg flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-xs md:text-sm font-medium">L&apos;Expert AI</span>
-              </div>
             </div>
           </AnimatedSection>
         </div>
