@@ -125,13 +125,10 @@ const Footer: FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8 mt-8">
+        <div className="border-t border-gray-700 pt-8 mt-8 flex justify-center">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 mb-4 md:mb-0">
               © {new Date().getFullYear()} L&apos;Expert. Tous droits réservés.
-            </div>
-            <div className="flex items-center space-x-4">
-              <Image src="/placeholder.svg" alt="Payment Methods" width={200} height={30} className="h-8 w-auto" />
             </div>
           </div>
         </div>

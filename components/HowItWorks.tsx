@@ -32,7 +32,7 @@ const HowItWorks: FC = () => {
     }}>
       <div className="container mx-auto px-4">
         <AnimatedSection direction="left">
-          <h2 className="text-3xl font-bold text-center text-[#2D1155] mb-16">Comment ça marche ?</h2>
+          <h2 className="text-4xl font-bold text-center text-[#2D1155] mb-16">Comment ça marche ?</h2>
         </AnimatedSection>
 
         <div className="relative max-w-4xl mx-auto">
