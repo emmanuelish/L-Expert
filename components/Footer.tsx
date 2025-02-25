@@ -1,6 +1,5 @@
 import type { FC } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { WhatsAppLogo, InstagramLogo, FacebookLogo } from "./social-icons"
 
 const Footer: FC = () => {
