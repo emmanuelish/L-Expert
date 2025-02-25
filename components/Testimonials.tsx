@@ -3,8 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { IconQuote } from "@tabler/icons-react";
 import Image from "next/image";
-import Img2 from "@/public/pfp1.jpg";
-import Img3 from "@/public/pfp2.jpg";
 import AnimatedSection from "./AnimatedSection";
 
 const testimonialsData = [
@@ -12,15 +10,15 @@ const testimonialsData = [
     id: 1,
     name: "Jolie Akakpo",
     location: "Lomé",
-    image: Img2,
+    flag: "https://flagcdn.com/tg.svg",
     title: "CV parfaitement adapté à mon parcours",
     text: "Avant, mon CV était fade et peu attractif. Après l'intervention de L'Expert, j'ai découvert une version de mon parcours beaucoup plus impactante et valorisante. Ça m'a donné un énorme boost de confiance pour mes entretiens !"
   },
   {
     id: 2,
     name: "Marcus Anthony",
-    location: "Los Angeles",
-    image: Img3,
+    location: "Lomé",
+    flag: "https://flagcdn.com/tg.svg",
     title: "Service rapide et professionnel",
     text: "J'avais besoin d'un CV professionnel en urgence pour une offre qui me correspondait parfaitement. En 24h, j'ai reçu un document impeccable, bien structuré et optimisé pour mon secteur. J'ai postulé et obtenu un entretien immédiatement !"
   },
@@ -28,7 +26,7 @@ const testimonialsData = [
     id: 3,
     name: "Luc Kouassi",
     location: "Abidjan",
-    image: Img3,
+    flag: "https://flagcdn.com/ci.svg",
     title: "Résultats garantis",
     text: "J'envoyais des CV depuis des mois sans réponse. Après avoir fait appel à L'Expert, j'ai reçu 3 entretiens en une semaine et décroché un poste en moins d'un mois ! L'Expert fait vraiment la différence. Merci infiniment !"
   }
@@ -53,7 +51,7 @@ const Testimonials = () => {
           </div>
         </AnimatedSection>
         <div className="flex flex-wrap gap-8 justify-center mt-12">
-          {testimonialsData.map(({ id, name, location, image, text, title }) => (
+          {testimonialsData.map(({ id, name, location, flag, text, title }) => (
             <AnimatedSection
               key={id}
               direction={isLargeScreen ? (id === 0 ? "left" : id === 2 ? "right" : "down") : "left"}
@@ -64,7 +62,14 @@ const Testimonials = () => {
                   <IconQuote width={50} height={50} />
                 </span>
                 <div className="flex items-center gap-4 mb-4 md:mb-6">
-                  <Image src={image} alt="user_img" width={56} height={56} className="rounded-full" />
+                  <div className="relative w-14 h-14">
+                    <Image 
+                      src={flag || "/placeholder.svg"} 
+                      alt={`Drapeau de ${location}`}
+                      fill
+                      className="rounded-full"
+                    />
+                  </div>
                   <div>
                     <h4 className="text-lg font-semibold">{name}</h4>
                     <p className="text-gray-500">{location}</p>
