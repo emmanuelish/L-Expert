@@ -17,7 +17,7 @@ export default function DynamicSections() {
     <>
       <Hero />
       <Features />
-      <TrustLogos />
+      {/* <TrustLogos /> */}
       <Testimonials />
       <HowItWorks />
       <Solutions />
