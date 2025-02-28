@@ -18,7 +18,7 @@ const Hero: React.FC = React.memo(() => {
                 booster votre carrière. Recevez vos documents en moins de 24 heures !
               </p>
               <Button className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-6 md:px-8 py-4 md:py-6 rounded-full text-base md:text-lg w-full md:w-auto"
-                onClick={() => window.open("https://wa.me/22897864808", "_blank")}
+                onClick={() => window.open("https://wa.me/22891989046", "_blank")}
               >
                 Commandez maintenant
               </Button>

@@ -51,7 +51,7 @@ const Navbar = () => {
           {/* CTA Buttons */}
           <div className="flex items-center space-x-4">
             <Button className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-6 py-2 rounded-full"
-              onClick={() => window.open("https://wa.me/22897864808", "_blank")}
+              onClick={() => window.open("https://wa.me/22891989046", "_blank")}
             >
               Commander
             </Button>

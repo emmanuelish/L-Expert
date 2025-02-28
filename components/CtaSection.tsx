@@ -34,7 +34,7 @@ const CtaSection: FC = () => {
                 Boostez votre carrière avec nos CV personnalisés
               </h2>
               <Button className="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white px-6 md:px-8 py-4 md:py-6 rounded-full text-base md:text-lg w-full sm:w-auto"
-                onClick={() => window.open("https://wa.me/22897864808", "_blank")}
+                onClick={() => window.open("https://wa.me/22891989046", "_blank")}
               >
                 Commander mon CV
               </Button>
