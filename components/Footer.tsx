@@ -12,12 +12,12 @@ const Footer: FC = () => {
             <h3 className="text-lg font-semibold mb-4">ENTREPRISE</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-300 hover:text-white">
+                <Link href="#about" className="text-gray-300 hover:text-white">
                   À propos de nous
                 </Link>
               </li>
               <li>
-                <Link href="/" className="text-gray-300 hover:text-white">
+                <Link href="#about" className="text-gray-300 hover:text-white">
                   Nous contacter
                 </Link>
               </li>
@@ -95,30 +95,30 @@ const Footer: FC = () => {
               <li className="text-gray-300">Email: contact@lexpert.com</li>
               <li className="text-gray-300">Tél: +228 91 98 90 46</li>
               <li className="flex space-x-4 mt-4">
-                <a
+                <Link
                   href="https://wa.me/22891989046"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transform hover:scale-110 transition-transform duration-200"
                 >
                   <WhatsAppLogo />
-                </a>
-                <a
+                </ Link>
+                <Link
                   href="https://www.instagram.com/yourinstagram"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transform hover:scale-110 transition-transform duration-200"
                 >
                   <InstagramLogo />
-                </a>
-                <a
+                </ Link>
+                <Link
                   href="https://www.facebook.com/yourfacebook"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transform hover:scale-110 transition-transform duration-200"
                 >
                   <FacebookLogo />
-                </a>
+                </ Link>
               </li>
             </ul>
           </div>

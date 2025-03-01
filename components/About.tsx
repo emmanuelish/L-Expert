@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { WhatsAppLogo, InstagramLogo, FacebookLogo, TikTokLogo, TelegramLogo } from "./social-icons"
 
 export default function About() {
@@ -25,46 +26,46 @@ export default function About() {
         <div className="text-center mb-8">
           <h3 className="text-xl font-semibold text-[#2D1155] mb-4">Suivez-nous sur les réseaux sociaux</h3>
           <div className="flex flex-wrap justify-center gap-6">
-            <a
+            <Link
               href="https://wa.me/22891989046"
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200"
             >
               <WhatsAppLogo />
-            </a>
-            <a
+            </ Link>
+            <Link
               href="https://www.instagram.com/yourinstagram"
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200"
             >
               <InstagramLogo />
-            </a>
-            <a
+            </ Link>
+            <Link
               href="https://www.facebook.com/yourfacebook"
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200"
             >
               <FacebookLogo />
-            </a>
-            <a
+            </ Link>
+            <Link
               href="https://www.tiktok.com/@yourtiktok"
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200"
             >
               <TikTokLogo />
-            </a>
-            <a
+            </ Link>
+            <Link
               href="https://t.me/yourtelegram"
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200"
             >
               <TelegramLogo />
-            </a>
+            </ Link>
           </div>
         </div>
       </div>

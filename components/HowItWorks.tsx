@@ -23,7 +23,7 @@ const steps = [
 
 const HowItWorks: FC = () => {
   return (
-    <section className="py-16 bg-white" style={{
+    <section id="howItWorks" className="py-16 bg-white" style={{
       background: `url(//images.ctfassets.net/rz1oowkt5gyp/7KgS3XVFhGu3TiclJKloEp/c10aad1…/ViewsBackground_Left_Narrow.svg) left center / contain no-repeat scroll padding-box border-box,
                    url(//images.ctfassets.net/rz1oowkt5gyp/2HisRmboWIdXSYaaUSDzon/dadecff…/ViewsBackground_Right_Narrow.svg) right center / contain no-repeat scroll padding-box border-box,
                    linear-gradient(240deg, rgb(0, 184, 217), rgb(0, 101, 255)) 0% 0% / auto repeat scroll padding-box border-box rgb(0, 101, 255)`,
