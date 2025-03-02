@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import DynamicNavbar from "@/components/DynamicNavbar";
 import DynamicWhatsAppButton from "@/components/DynamicWhatsAppButton";
 import Script from "next/script";
+import GTMScript from '@/components/GTMScript';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,14 +38,14 @@ export default function RootLayout({
         />
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-HRXPV17YNY"
+          src="https://www.googletagmanager.com/gtag/js?id=G-0NBGYEYQ67"
         />
         <Script
           id="google-analytics"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              gtag('config', 'G-HRXPV17YNY', {
+              gtag('config', 'G-0NBGYEYQ67', {
                 page_path: window.location.pathname,
               });
             `,
@@ -54,7 +55,10 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} overflow-x-hidden`}>
         <DynamicNavbar />
-        <div className="pt-16">{children}</div>
+          <div className="pt-16">
+            <GTMScript />
+            {children}
+          </div>
         <DynamicWhatsAppButton />
         <Analytics />
       </body>
