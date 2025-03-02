@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import AnimatedSection from "./AnimatedSection";
+import Link from "next/link";
 
 // Define types for our pricing data
 interface PricingPlan {
@@ -27,7 +28,7 @@ export default function PricingSection() {
       {
         name: "Lettre de Motivation",
         price: "1.500FCFA",
-        description: "Création d'un curriculum vitae professionnel adapté aux étudiants entrant sur le marché du travailt",
+        description: "Lettre de motivation convaincante mettant en valeur vos résultats académiques",
         features: [
           "ATS-optimized format",
           "Professional template selection",
@@ -41,7 +42,7 @@ export default function PricingSection() {
       {
         name: "CV",
         price: "1.500FCFA",
-        description: "Création d'un curriculum vitae professionnel adapté aux étudiants entrant sur le marché du travail",
+        description: "Création d'un Curriculum Vitae professionnel adapté aux étudiants entrant sur le marché du travail",
         features: [
           "Personalized content",
           "Academic focus",
@@ -192,6 +193,7 @@ export default function PricingSection() {
                       <Button
                         className={`w-full rounded-full transition-all duration-300 hover:shadow-lg ${plan.popular ? `${plan.color} hover:opacity-90` : "bg-white hover:bg-gray-50 text-gray-800 border-2 border-gray-200"}`}
                         variant={plan.popular ? "default" : "outline"}
+                        onClick={() => window.open("https://wa.me/22891989046", "_blank")}
                       >
                         Commander maintenant
                       </Button>
