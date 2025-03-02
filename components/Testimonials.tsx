@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { IconQuote } from "@tabler/icons-react";
 import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
@@ -32,7 +32,7 @@ const testimonialsData = [
   }
 ];
 
-const Testimonials = () => {
+const Testimonials: FC = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
@@ -42,11 +42,10 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <div id="testimonials" className="bg-gray-100 py-16">
+    <section id="testimonials" className="bg-gray-100 py-16">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="left">
           <div className="flex flex-col items-center text-center">
-            <h4 className="text-2xl font-semibold text-gray-900">Témoignages</h4>
             <h2 className="text-4xl font-extrabold mt-2">Découvrez ce que nos clients disent de nous</h2>
           </div>
         </AnimatedSection>
@@ -84,7 +83,7 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
