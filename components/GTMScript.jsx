@@ -2,11 +2,11 @@
 
 import { useEffect } from 'react';
 
-const GTMScript = () => {
+export default function GTMScript() {
   useEffect(() => {
     // Your sGTM Worker URL
-    const sgtmUrl = 'https://sgtm-worker.emmanuelowouko.workers.dev'; // Replace with your actual Worker URL
-    const containerId = 'GTM-PZ2F4W5D'; // Replace with your GTM container ID
+    const sgtmUrl = 'https://sgtm-worker.emmanuelowouko.workers.dev'; // Your Worker URL
+    const containerId = 'GTM-PZ2F4W5D'; // Your GTM container ID
     
     // Initialize dataLayer
     window.dataLayer = window.dataLayer || [];
@@ -22,5 +22,3 @@ const GTMScript = () => {
   
   return null;
 }
-
-export default GTMScript
