@@ -49,21 +49,21 @@ const Testimonials: FC = () => {
             <h2 className="text-4xl font-extrabold mt-2">Découvrez ce que nos clients disent de nous</h2>
           </div>
         </AnimatedSection>
-        <div className="flex flex-wrap gap-8 justify-center mt-12">
+        <div className="flex flex-wrap gap-6 justify-center mt-12">
           {testimonialsData.map(({ id, name, location, flag, text, title }) => (
             <AnimatedSection
               key={id}
               direction={isLargeScreen ? (id === 0 ? "left" : id === 2 ? "right" : "down") : "left"}
               index={id}
             >
-              <div className="bg-white shadow-lg w-full md:max-w-md p-8 md:p-12 relative rounded-lg">
-                <span className="text-red-500 text-6xl absolute top-4 right-6 md:top-8 md:right-12">
-                  <IconQuote width={50} height={50} />
+              <div className="bg-white shadow-lg w-full sm:w-[320px] md:w-[360px] lg:w-[400px] p-6 sm:p-8 relative rounded-lg flex flex-col h-full">
+                <span className="text-red-500 text-6xl absolute top-4 right-6">
+                  <IconQuote width={40} height={40} className="sm:w-[45px] sm:h-[45px] lg:w-[50px] lg:h-[50px]" />
                 </span>
-                <div className="flex items-center gap-4 mb-4 md:mb-6">
-                  <div className="relative w-14 h-14">
-                    <Image 
-                      src={flag || "/placeholder.svg"} 
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="relative w-12 h-12 sm:w-14 sm:h-14">
+                    <Image
+                      src={flag || "/placeholder.svg"}
                       alt={`Drapeau de ${location}`}
                       fill
                       className="rounded-full"
@@ -74,10 +74,10 @@ const Testimonials: FC = () => {
                     <p className="text-gray-500">{location}</p>
                   </div>
                 </div>
-                <h4 className="font-bold text-lg md:text-xl mb-3 md:mb-4 text-red-500">
+                <h4 className="text-center font-bold text-lg mb-3 text-red-500">
                   {title}
                 </h4>
-                <p className="text-lg md:text-xl font-medium text-gray-900">&quot;{text}&quot;</p>
+                <p className="text-base sm:text-lg font-medium text-gray-900">&quot;{text}&quot;</p>
               </div>
             </AnimatedSection>
           ))}

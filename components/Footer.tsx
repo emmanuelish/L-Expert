@@ -8,7 +8,7 @@ const Footer: FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Section */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-4">ENTREPRISE</h3>
             <ul className="space-y-2">
               <li>
@@ -35,7 +35,7 @@ const Footer: FC = () => {
           </div>
 
           {/* Legal Section */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-4">LÉGAL</h3>
             <ul className="space-y-2">
               <li>
@@ -62,7 +62,7 @@ const Footer: FC = () => {
           </div>
 
           {/* Services Section */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-4">NOS SERVICES</h3>
             <ul className="space-y-2">
               <li>
@@ -89,12 +89,12 @@ const Footer: FC = () => {
           </div>
 
           {/* Contact Section */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-4">CONTACT</h3>
             <ul className="space-y-2">
               <li className="text-gray-300">Email: contact@lexpert.com</li>
               <li className="text-gray-300">Tél: +228 91 98 90 46</li>
-              <li className="flex space-x-4 mt-4">
+              <li className="flex justify-center md:justify-start space-x-4 mt-4">
                 <Link
                   href="https://wa.me/22891989046"
                   target="_blank"
@@ -126,7 +126,7 @@ const Footer: FC = () => {
 
         <div className="border-t border-gray-700 pt-8 mt-8 flex justify-center">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 mb-4 md:mb-0">
+            <div className="text-gray-400 mb-4 md:mb-0 text-center">
               © {new Date().getFullYear()} L&apos;Expert. Tous droits réservés.
             </div>
           </div>
@@ -137,4 +137,3 @@ const Footer: FC = () => {
 }
 
 export default Footer
-

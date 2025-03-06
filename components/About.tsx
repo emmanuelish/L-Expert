@@ -8,15 +8,15 @@ export default function About() {
         <h2 className="text-3xl font-bold text-center text-[#2D1155] mb-8">À propos de L&apos;Expert</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-[#2D1155]">Notre Mission</h3>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-semibold text-[#2D1155] text-center ">Notre Mission</h3>
+            <p className="text-gray-600 text-center ">
               Chez L&apos;Expert, notre mission est de vous aider à décrocher l&apos;emploi de vos rêves grâce à des CV et lettres
               de motivation professionnels et personnalisés.
             </p>
           </div>
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-[#2D1155]">Notre Engagement</h3>
-            <p className="text-gray-600">
+            <h3 className="text-center text-xl font-semibold text-[#2D1155]">Notre Engagement</h3>
+            <p className="text-gray-600 text-center ">
               Nous nous engageons à fournir un service rapide et de qualité, avec une livraison garantie en 24h et un
               accompagnement personnalisé.
             </p>
