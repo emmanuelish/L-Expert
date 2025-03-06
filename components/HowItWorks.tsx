@@ -22,6 +22,8 @@ const steps = [
 ]
 
 const HowItWorks: FC = () => {
+  const handleClick = () => window.open("https://wa.me/22891989046", "_blank")
+
   return (
     <section id="howItWorks" className="py-16 bg-white" style={{
       background: `linear-gradient(240deg, rgb(0, 184, 217), rgb(0, 101, 255)) 0% 0% / auto repeat scroll padding-box border-box rgb(0, 101, 255)`,
@@ -78,7 +80,7 @@ const HowItWorks: FC = () => {
           <div className="mt-12 text-center flex justify-center">
             <Button
               className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-4 sm:px-8 py-4 rounded-full text-base sm:text-lg w-full sm:w-auto h-auto min-h-[48px] flex items-center justify-center whitespace-normal"
-              onClick={() => window.open("https://wa.me/22891989046", "_blank")}
+              onClick={handleClick}
             >
               Commencer maintenant sur WhatsApp
             </Button>

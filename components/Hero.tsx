@@ -4,6 +4,8 @@ import React from "react"
 import AnimatedSection from "./AnimatedSection"
 
 const Hero: React.FC = React.memo(() => {
+  const handleClick = () => window.open("https://wa.me/22891989046", "_blank")
+
   return (
     <section className="bg-[#E3D0FF] relative overflow-hidden">
       <div className="container mx-auto px-4 py-8 md:py-16">
@@ -18,7 +20,7 @@ const Hero: React.FC = React.memo(() => {
                 booster votre carrière. Recevez vos documents en moins de 24 heures !
               </p>
               <Button className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-6 md:px-8 py-4 md:py-6 rounded-full text-base md:text-lg w-full md:w-auto"
-                onClick={() => window.open("https://wa.me/22891989046", "_blank")}
+                onClick={handleClick}
               >
                 Commandez maintenant
               </Button>

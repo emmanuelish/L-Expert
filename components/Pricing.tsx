@@ -22,6 +22,8 @@ interface PricingData {
 }
 
 export default function PricingSection() {
+  const handleClick = () => window.open("https://wa.me/22891989046", "_blank");
+  
   const pricing: PricingData = {
     Étudiant: [
       {
@@ -192,7 +194,7 @@ export default function PricingSection() {
                       <Button
                         className={`w-full rounded-full transition-all duration-300 hover:shadow-lg ${plan.popular ? `${plan.color} hover:opacity-90` : "bg-white hover:bg-gray-50 text-gray-800 border-2 border-gray-200"}`}
                         variant={plan.popular ? "default" : "outline"}
-                        onClick={() => window.open("https://wa.me/22891989046", "_blank")}
+                        onClick={handleClick}
                       >
                         Commander maintenant
                       </Button>
