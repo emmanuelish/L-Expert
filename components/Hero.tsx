@@ -1,10 +1,10 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import React from "react"
-import AnimatedSection from "./AnimatedSection"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import React from "react";
+import AnimatedSection from "./AnimatedSection";
 
 const Hero: React.FC = React.memo(() => {
-  const handleClick = () => window.open("https://wa.me/22891989046", "_blank")
+  const handleClick = () => window.open("https://wa.me/22891989046", "_blank");
 
   return (
     <section className="bg-[#E3D0FF] relative overflow-hidden">
@@ -19,7 +19,8 @@ const Hero: React.FC = React.memo(() => {
                 L&apos;Expert vous offre des CV et lettres de motivation sur mesure, rédigés par des professionnels, pour
                 booster votre carrière. Recevez vos documents en moins de 24 heures !
               </p>
-              <Button className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-6 md:px-8 py-4 md:py-6 rounded-full text-base md:text-lg w-full md:w-auto"
+              <Button
+                className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-6 md:px-8 py-4 md:py-6 rounded-full text-base md:text-lg w-full md:w-auto"
                 onClick={handleClick}
               >
                 Commandez maintenant
@@ -32,10 +33,9 @@ const Hero: React.FC = React.memo(() => {
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1HFUiG4e4E740pNsS22cp6aEwyHqt1.png"
                   alt="Professional success celebration"
-                  layout="fill"
-                  objectFit="contain"
+                  fill
+                  style={{ objectFit: 'contain' }}
                   priority
-                  loading="eager"
                   className="rounded-3xl"
                 />
               </div>
@@ -44,10 +44,9 @@ const Hero: React.FC = React.memo(() => {
         </div>
       </div>
     </section>
-  )
-})
+  );
+});
 
-Hero.displayName = "Hero"
+Hero.displayName = "Hero";
 
-export default Hero
-
+export default Hero;
