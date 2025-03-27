@@ -10,7 +10,6 @@ const Pricing = dynamic(() => import("./Pricing"), { ssr: false });
 const Solutions = dynamic(() => import("./Solutions"), { ssr: false });
 const CtaSection = dynamic(() => import("./CtaSection"), { ssr: false });
 const About = dynamic(() => import("./About"), { ssr: false });
-const Footer = dynamic(() => import("./Footer"), { ssr: false });
 
 export default function DynamicSections() {
   return (
@@ -24,7 +23,6 @@ export default function DynamicSections() {
       <Solutions />
       <CtaSection />
       <About />
-      <Footer />
     </>
   );
 }

@@ -7,6 +7,7 @@ import DynamicNavbar from "@/components/DynamicNavbar";
 import DynamicWhatsAppButton from "@/components/DynamicWhatsAppButton";
 import Script from "next/script";
 import GTMScript from '@/components/GTMScript';
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,11 +55,12 @@ export default function RootLayout({
 
       </head>
       <body className={`${inter.className} overflow-x-hidden`}>
+        <GTMScript />
         <DynamicNavbar />
-          <div className="pt-16">
-            <GTMScript />
-            {children}
-          </div>
+        <div className="pt-16">
+          {children}
+        </div>
+        <Footer />
         <DynamicWhatsAppButton />
         <Analytics />
       </body>

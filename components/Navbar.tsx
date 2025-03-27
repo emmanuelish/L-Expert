@@ -27,20 +27,20 @@ const Navbar = () => {
 
           {/* Navigation Links - Visible on large screens */}
           <div className="hidden lg:flex items-center space-x-8">
-            <Link href="#features" className="text-gray-600 hover:text-gray-900 font-bold">
-              Nos Avantages
+            <Link href="/services" className="text-gray-600 hover:text-gray-900 font-bold">
+              Nos Services
             </Link>
-            <Link href="#testimonials" className="text-gray-600 hover:text-gray-900 font-bold">
-              Témoignages
-            </Link>
-            <Link href="#pricing" className="text-gray-600 hover:text-gray-900 font-bold">
+            <Link href="/pricing" className="text-gray-600 hover:text-gray-900 font-bold">
               Tarifs
             </Link>
-            <Link href="#howItWorks" className="text-gray-600 hover:text-gray-900 font-bold">
-              Comment ça marche
+            <Link href="/how-it-works" className="text-gray-600 hover:text-gray-900 font-bold">
+              Comment Ça Marche
             </Link>
-            <Link href="#about" className="text-gray-600 hover:text-gray-900 font-bold">
+            <Link href="/about" className="text-gray-600 hover:text-gray-900 font-bold">
               À propos
+            </Link>
+            <Link href="/blog" className="text-gray-600 hover:text-gray-900 font-bold">
+              Blog
             </Link>
           </div>
 
@@ -68,39 +68,39 @@ const Navbar = () => {
           <div className="lg:hidden bg-white py-4 border-t">
             <div className="flex flex-col space-y-4 px-4">
               <Link 
-                href="#features" 
+                href="/services" 
                 className="text-gray-600 hover:text-gray-900 font-bold py-2 text-center"
                 onClick={handleHamburgerClick}
               >
-                Nos Avantages
+                Nos Services
               </Link>
               <Link 
-                href="#testimonials" 
-                className="text-gray-600 hover:text-gray-900 font-bold py-2 text-center"
-                onClick={handleHamburgerClick}
-              >
-                Témoignages
-              </Link>
-              <Link 
-                href="#pricing" 
+                href="/pricing" 
                 className="text-gray-600 hover:text-gray-900 font-bold py-2 text-center"
                 onClick={handleHamburgerClick}
               >
                 Tarifs
               </Link>
               <Link 
-                href="#howItWorks" 
+                href="/how-it-works" 
                 className="text-gray-600 hover:text-gray-900 font-bold py-2 text-center"
                 onClick={handleHamburgerClick}
               >
-                Comment ça marche
+                Comment Ça Marche
               </Link>
               <Link 
-                href="#about" 
+                href="/about" 
                 className="text-gray-600 hover:text-gray-900 font-bold py-2 text-center"
                 onClick={handleHamburgerClick}
               >
                 À propos
+              </Link>
+              <Link 
+                href="/blog" 
+                className="text-gray-600 hover:text-gray-900 font-bold py-2 text-center"
+                onClick={handleHamburgerClick}
+              >
+                Blog
               </Link>
             </div>
           </div>

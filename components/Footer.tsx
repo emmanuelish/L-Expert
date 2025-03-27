@@ -12,12 +12,12 @@ const Footer: FC = () => {
             <h3 className="text-lg font-semibold mb-4">ENTREPRISE</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#about" className="text-gray-300 hover:text-white">
+                <Link href="/about" className="text-gray-300 hover:text-white">
                   À propos de nous
                 </Link>
               </li>
               <li>
-                <Link href="#about" className="text-gray-300 hover:text-white">
+                <Link href="/about" className="text-gray-300 hover:text-white">
                   Nous contacter
                 </Link>
               </li>
