@@ -12,7 +12,7 @@ export function generateStaticParams() {
 }
 
 export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const article = getArticleBySlug(articles, params.slug)
+  const article = getArticleBySlug([featuredArticle, ...articles], params.slug)
 
   if (!article) {
     notFound()
