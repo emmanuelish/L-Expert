@@ -4,6 +4,12 @@ import { notFound } from "next/navigation"
 import { articles, featuredArticle } from "@/lib/data/articles"
 import { slugify, getArticleBySlug } from "@/lib/utils"
 
+interface PageProps {
+  params: {
+    slug: string
+  }
+}
+
 export function generateStaticParams() {
   // Make sure to include the featured article along with all other articles
   return [featuredArticle, ...articles].map((article) => ({
@@ -11,8 +17,9 @@ export function generateStaticParams() {
   }))
 }
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const article = getArticleBySlug([featuredArticle, ...articles], params.slug)
+export default async function ArticlePage({ params }: PageProps) {
+  const { slug } = params
+  const article = getArticleBySlug([featuredArticle, ...articles], slug)
 
   if (!article) {
     notFound()
