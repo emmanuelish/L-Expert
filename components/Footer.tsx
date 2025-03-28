@@ -1,6 +1,6 @@
 import type { FC } from "react"
 import Link from "next/link"
-import { WhatsAppLogo, InstagramLogo, FacebookLogo } from "./social-icons"
+import { WhatsAppLogo, InstagramLogo, TikTokLogo } from "./social-icons"
 
 const Footer: FC = () => {
   return (
@@ -104,7 +104,7 @@ const Footer: FC = () => {
                   <WhatsAppLogo />
                 </ Link>
                 <Link
-                  href="https://www.instagram.com/yourinstagram"
+                  href="https://www.instagram.com/lexpertpro"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transform hover:scale-110 transition-transform duration-200"
@@ -112,12 +112,12 @@ const Footer: FC = () => {
                   <InstagramLogo />
                 </ Link>
                 <Link
-                  href="https://www.facebook.com/yourfacebook"
+                  href="https://www.tiktok.com/@lexpertpro"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transform hover:scale-110 transition-transform duration-200"
                 >
-                  <FacebookLogo />
+                  <TikTokLogo />
                 </ Link>
               </li>
             </ul>

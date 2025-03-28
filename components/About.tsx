@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { WhatsAppLogo, InstagramLogo, FacebookLogo, TikTokLogo, TelegramLogo } from "./social-icons"
+import { WhatsAppLogo, InstagramLogo, TikTokLogo, TelegramLogo } from "./social-icons"
 
 export default function About() {
   return (
