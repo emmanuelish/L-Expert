@@ -1,28 +1,27 @@
-import Image from "next/image"
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import { articles, featuredArticle } from "@/lib/data/articles"
-import { slugify, getArticleBySlug } from "@/lib/utils"
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { articles, featuredArticle } from "@/lib/data/articles";
+import { slugify, getArticleBySlug } from "@/lib/utils";
 
 interface PageProps {
   params: {
-    slug: string
-  }
+    slug: string;
+  };
 }
 
 export function generateStaticParams() {
-  // Make sure to include the featured article along with all other articles
   return [featuredArticle, ...articles].map((article) => ({
     slug: slugify(article.title),
-  }))
+  }));
 }
 
 export default async function ArticlePage({ params }: PageProps) {
-  const { slug } = params
-  const article = getArticleBySlug([featuredArticle, ...articles], slug)
+  const { slug } = params;
+  const article = getArticleBySlug([featuredArticle, ...articles], slug);
 
   if (!article) {
-    notFound()
+    notFound();
   }
 
   return (
