@@ -1,27 +1,70 @@
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { articles, featuredArticle } from "@/lib/data/articles";
-import { slugify, getArticleBySlug } from "@/lib/utils";
+import Image from "next/image"
+import Link from "next/link"
+import { notFound } from "next/navigation"
+import type { Metadata } from "next"
+import { articles, featuredArticle } from "@/lib/data/articles"
+import { slugify, getArticleBySlug } from "@/lib/utils"
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
+type PageParams = {
+  params: Promise<{ slug: string }>
+}
+
+// Generate metadata for the page
+export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
+  // Resolve the slug from params
+  const { slug } = await params
+
+  // Find the article by slug
+  const article = getArticleBySlug([featuredArticle, ...articles], slug)
+
+  // If article not found, return basic metadata
+  if (!article) {
+    return {
+      title: "Article introuvable",
+      description: "L'article que vous recherchez n'existe pas ou a été déplacé.",
+    }
+  }
+
+  // Return metadata based on the article
+  return {
+    title: article.title,
+    description: `Article par ${article.author} sur ${article.category}`,
+    openGraph: {
+      title: article.title,
+      description: `Article par ${article.author} sur ${article.category}`,
+      images: [
+        {
+          url: article.image,
+          width: 1200,
+          height: 630,
+          alt: article.alt,
+        },
+      ],
+      type: "article",
+      publishedTime: article.date,
+      authors: [article.author],
+      tags: [article.category],
+    },
+  }
 }
 
 export function generateStaticParams() {
+  // Make sure to include the featured article along with all other articles
   return [featuredArticle, ...articles].map((article) => ({
     slug: slugify(article.title),
-  }));
+  }))
 }
 
-export default async function ArticlePage({ params }: PageProps) {
-  const { slug } = params;
-  const article = getArticleBySlug([featuredArticle, ...articles], slug);
+export default async function ArticlePage({ params }: PageParams) {
+  // Await the params to get the slug
+  const { slug } = await params
 
+  // Find the article by slug
+  const article = getArticleBySlug([featuredArticle, ...articles], slug)
+
+  // If article not found, show 404 page
   if (!article) {
-    notFound();
+    notFound()
   }
 
   return (
