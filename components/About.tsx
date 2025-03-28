@@ -35,7 +35,7 @@ export default function About() {
               <WhatsAppLogo />
             </ Link>
             <Link
-              href="https://www.instagram.com/yourinstagram"
+              href="https://www.instagram.com/lexpertpro"
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200"
@@ -43,15 +43,7 @@ export default function About() {
               <InstagramLogo />
             </ Link>
             <Link
-              href="https://www.facebook.com/yourfacebook"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transform hover:scale-110 transition-transform duration-200"
-            >
-              <FacebookLogo />
-            </ Link>
-            <Link
-              href="https://www.tiktok.com/@yourtiktok"
+              href="https://www.tiktok.com/@lexpertpro"
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200"
@@ -59,7 +51,7 @@ export default function About() {
               <TikTokLogo />
             </ Link>
             <Link
-              href="https://t.me/yourtelegram"
+              href="/"
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200"
