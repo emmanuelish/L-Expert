@@ -27,7 +27,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default function ArticlePage({ params }: PageProps) {
   const article = getArticleBySlug(articles, params.slug);
 
   if (!article) {
