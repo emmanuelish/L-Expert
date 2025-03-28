@@ -1,21 +1,37 @@
-import Image from "next/image"
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import { articles, featuredArticle } from "@/lib/data/articles"
-import { slugify, getArticleBySlug } from "@/lib/utils"
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { articles, featuredArticle } from "@/lib/data/articles";
+import { slugify, getArticleBySlug } from "@/lib/utils";
+import { Metadata } from "next";
 
 export function generateStaticParams() {
   // Make sure to include the featured article along with all other articles
   return [featuredArticle, ...articles].map((article) => ({
-    slug: slugify(article.title),
-  }))
+    params: {
+      slug: slugify(article.title),
+    },
+  }));
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const article = getArticleBySlug(articles, params.slug);
+
+  if (!article) {
+    return {};
+  }
+
+  return {
+    title: article.title,
+    description: `Article by ${article.author} on ${article.category}`,
+  };
 }
 
 export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const article = getArticleBySlug(articles, params.slug)
+  const article = getArticleBySlug(articles, params.slug);
 
   if (!article) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -128,6 +144,5 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
