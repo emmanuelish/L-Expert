@@ -22,12 +22,7 @@ const Footer: FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/" className="text-gray-300 hover:text-white">
-                  Carrières
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="text-gray-300 hover:text-white">
+                <Link href="/blog" className="text-gray-300 hover:text-white">
                   Blog
                 </Link>
               </li>
@@ -78,11 +73,6 @@ const Footer: FC = () => {
               <li>
                 <Link href="/" className="text-gray-300 hover:text-white">
                   Optimisation LinkedIn
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="text-gray-300 hover:text-white">
-                  Coaching carrière
                 </Link>
               </li>
             </ul>
