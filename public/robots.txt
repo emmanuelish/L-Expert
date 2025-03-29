@@ -2,8 +2,6 @@
 User-agent: *
 Allow: /
 
-# Host
-Host: https://lexpertpro.com
 
 # Sitemaps
 Sitemap: https://lexpertpro.com/sitemap.xml
