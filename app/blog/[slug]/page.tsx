@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { articles, featuredArticle } from "@/lib/data/articles"
 import { slugify, getArticleBySlug } from "@/lib/utils"
+import { ArticleSchema, BreadcrumbSchema } from "@/components/SchemaOrg"
 
 type PageParams = {
   params: Promise<{ slug: string }>
@@ -57,8 +58,65 @@ export default async function ArticlePage({ params }: PageParams) {
     notFound()
   }
 
+  // Format date for Schema.org (assuming article.date is in format "DD MMMM YYYY" in French)
+  const formatDateForSchema = (dateStr: string) => {
+    // This is a simple conversion - in a real app, you might need a more robust solution
+    const months: Record<string, string> = {
+      janvier: "01",
+      février: "02",
+      mars: "03",
+      avril: "04",
+      mai: "05",
+      juin: "06",
+      juillet: "07",
+      août: "08",
+      septembre: "09",
+      octobre: "10",
+      novembre: "11",
+      décembre: "12",
+    }
+
+    const parts = dateStr.split(" ")
+    if (parts.length === 3) {
+      const day = parts[0].padStart(2, "0")
+      const month = months[parts[1].toLowerCase()] || "01"
+      const year = parts[2]
+      return `${year}-${month}-${day}`
+    }
+    return new Date().toISOString().split("T")[0] // Fallback to current date
+  }
+
+  // Prepare breadcrumb data
+  const breadcrumbItems = [
+    { name: "Accueil", url: "https://lexpertpro.com/" },
+    { name: "Blog", url: "https://lexpertpro.com/blog" },
+    { name: article.category, url: `https://lexpertpro.com/blog?category=${slugify(article.category)}` },
+    { name: article.title, url: `https://lexpertpro.com/blog/${slug}` },
+  ]
+
+  // Extract a description from the article content if available
+  const getArticleDescription = () => {
+    if (article.content && article.content.length > 0) {
+      const firstParagraph = article.content.find((section) => section.paragraphe)?.paragraphe
+      return firstParagraph || `Article sur ${article.category} par ${article.author}`
+    }
+    return `Article sur ${article.category} par ${article.author}`
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Schema.org structured data */}
+      <ArticleSchema
+        title={article.title}
+        description={getArticleDescription()}
+        image={article.image}
+        authorName={article.author}
+        datePublished={formatDateForSchema(article.date)}
+        category={article.category}
+        url={`https://lexpertpro.com/blog/${slug}`}
+      />
+      <BreadcrumbSchema items={breadcrumbItems} />
+
       {/* Breadcrumb */}
       <div className="flex items-center text-sm text-gray-500 mb-8">
         <Link href="/" className="hover:text-blue-500">

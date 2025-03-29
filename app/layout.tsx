@@ -8,6 +8,7 @@ import DynamicWhatsAppButton from "@/components/DynamicWhatsAppButton"
 import Script from "next/script"
 import GTMScript from "@/components/GTMScript"
 import Footer from "@/components/Footer"
+import { WebsiteSchema, OrganizationSchema } from "@/components/SchemaOrg"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -50,6 +51,10 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        {/* Schema.org structured data */}
+        <WebsiteSchema />
+        <OrganizationSchema />
+
         <GTMScript />
         <DynamicNavbar />
         <div className="pt-16">{children}</div>
