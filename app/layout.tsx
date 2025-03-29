@@ -1,26 +1,25 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import type React from "react";
-import { Analytics } from "@vercel/analytics/react";
-import DynamicNavbar from "@/components/DynamicNavbar";
-import DynamicWhatsAppButton from "@/components/DynamicWhatsAppButton";
-import Script from "next/script";
-import GTMScript from '@/components/GTMScript';
-import Footer from "@/components/Footer";
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
+import type React from "react"
+import { Analytics } from "@vercel/analytics/react"
+import DynamicNavbar from "@/components/DynamicNavbar"
+import DynamicWhatsAppButton from "@/components/DynamicWhatsAppButton"
+import Script from "next/script"
+import GTMScript from "@/components/GTMScript"
+import Footer from "@/components/Footer"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "L'Expert - CV et lettres de motivation personnalisés en 24h",
-  description:
-    "Service de rédaction professionnelle de CV et lettres de motivation, livrés en moins de 24 heures",
-};
+  description: "Service de rédaction professionnelle de CV et lettres de motivation, livrés en moins de 24 heures",
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="fr" className="overflow-x-hidden">
@@ -37,10 +36,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-0NBGYEYQ67"
-        />
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-0NBGYEYQ67" />
         <Script
           id="google-analytics"
           strategy="afterInteractive"
@@ -52,18 +48,16 @@ export default function RootLayout({
             `,
           }}
         />
-
       </head>
-      <body className={`${inter.className} overflow-x-hidden`}>
+      <body className={inter.className}>
         <GTMScript />
         <DynamicNavbar />
-        <div className="pt-16">
-          {children}
-        </div>
+        <div className="pt-16">{children}</div>
         <Footer />
         <DynamicWhatsAppButton />
         <Analytics />
       </body>
     </html>
-  );
+  )
 }
+

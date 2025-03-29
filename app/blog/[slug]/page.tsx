@@ -11,13 +11,9 @@ type PageParams = {
 
 // Generate metadata for the page
 export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
-  // Resolve the slug from params
   const { slug } = await params
-
-  // Find the article by slug
   const article = getArticleBySlug([featuredArticle, ...articles], slug)
 
-  // If article not found, return basic metadata
   if (!article) {
     return {
       title: "Article introuvable",
@@ -25,7 +21,6 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
     }
   }
 
-  // Return metadata based on the article
   return {
     title: article.title,
     description: `Article par ${article.author} sur ${article.category}`,
@@ -49,20 +44,15 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
 }
 
 export function generateStaticParams() {
-  // Make sure to include the featured article along with all other articles
   return [featuredArticle, ...articles].map((article) => ({
     slug: slugify(article.title),
   }))
 }
 
 export default async function ArticlePage({ params }: PageParams) {
-  // Await the params to get the slug
   const { slug } = await params
-
-  // Find the article by slug
   const article = getArticleBySlug([featuredArticle, ...articles], slug)
 
-  // If article not found, show 404 page
   if (!article) {
     notFound()
   }
@@ -84,10 +74,10 @@ export default async function ArticlePage({ params }: PageParams) {
         </Link>
       </div>
 
-      {/* Two-column layout container */}
-      <div className="flex flex-col lg:flex-row lg:gap-8">
-        {/* Left column - Main content (2/3 width on desktop, full width on mobile) */}
-        <div className="w-full lg:w-2/3">
+      {/* Main content container with grid layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+        {/* Left column - Main content (2/3 width on desktop) */}
+        <div className="lg:col-span-2">
           {/* Article Header */}
           <div className="mb-8">
             {article.title && <h1 className="text-3xl md:text-4xl font-bold mb-4">{article.title}</h1>}
@@ -117,19 +107,14 @@ export default async function ArticlePage({ params }: PageParams) {
             </div>
           )}
 
-          {/* Article Content - Dynamic rendering based on content structure */}
+          {/* Article Content */}
           <div className="prose prose-lg max-w-none">
             {article.content ? (
-              // Render structured content if available
               article.content.map((section, index) => (
                 <div key={index} className="mb-8">
-                  {/* Render subtitle */}
                   {section.sousTitre && <h2 className="text-2xl font-bold mb-4">{section.sousTitre}</h2>}
-
-                  {/* Render paragraph */}
                   {section.paragraphe && <p className="mb-4">{section.paragraphe}</p>}
 
-                  {/* Render bullet points if available */}
                   {section.bulletPoints && section.bulletPoints.length > 0 && (
                     <ul className="list-disc pl-6 mb-4">
                       {section.bulletPoints.map((point, i) => (
@@ -140,7 +125,6 @@ export default async function ArticlePage({ params }: PageParams) {
                     </ul>
                   )}
 
-                  {/* Render image if available */}
                   {section.image && (
                     <div className="my-6">
                       <div className="relative h-[250px] md:h-[400px] rounded-lg overflow-hidden">
@@ -157,7 +141,6 @@ export default async function ArticlePage({ params }: PageParams) {
                     </div>
                   )}
 
-                  {/* Render citation/quote */}
                   {section.citation && (
                     <blockquote className="border-l-4 border-blue-500 pl-4 italic my-6">
                       <p className="text-gray-700">{section.citation.text}</p>
@@ -167,7 +150,6 @@ export default async function ArticlePage({ params }: PageParams) {
                     </blockquote>
                   )}
 
-                  {/* Render conclusion */}
                   {section.conclusion && (
                     <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500">
                       <h3 className="text-xl font-bold mb-3">Conclusion</h3>
@@ -177,7 +159,6 @@ export default async function ArticlePage({ params }: PageParams) {
                 </div>
               ))
             ) : (
-              // Fallback content if no structured content is available
               <div>
                 <p className="mb-4">
                   Cet article est en cours de rédaction. Revenez bientôt pour découvrir son contenu complet.
@@ -191,9 +172,9 @@ export default async function ArticlePage({ params }: PageParams) {
           <div className="mt-12 p-6 bg-gray-50 rounded-lg">
             <h3 className="text-lg font-semibold mb-2">À propos de l&apos;auteur</h3>
             <p className="text-gray-600">
-              {article.author} est un expert en {article.category.toLowerCase()}. Avec plusieurs années d&apos;expérience
-              dans le domaine, il partage régulièrement ses connaissances et conseils pour aider les professionnels à
-              développer leur carrière.
+              {article.author} est un expert en {article.category.toLowerCase()}. Avec plusieurs années
+              d&apos;expérience dans le domaine, il partage régulièrement ses connaissances et conseils pour aider les
+              professionnels à développer leur carrière.
             </p>
           </div>
 
@@ -232,18 +213,20 @@ export default async function ArticlePage({ params }: PageParams) {
           </div>
         </div>
 
-        {/* Right column - Ad space (1/3 width on desktop, full width on mobile) */}
-        <div className="w-full lg:w-1/3 mt-12 lg:mt-0">
-          <div className="sticky top-8 self-start">
+        {/* Right column - Ad space (1/3 width on desktop) */}
+        <aside className="lg:col-span-1 relative">
+          <div className="sticky top-20 z-10">
             {/* Ad Banner for L'Expert */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg shadow-lg border border-blue-400">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg shadow-lg border border-blue-400 mb-6">
               <div className="text-center mb-4">
                 <h3 className="text-xl font-bold uppercase tracking-wide">L&apos;EXPERT</h3>
                 <div className="h-0.5 w-16 bg-white mx-auto my-2"></div>
                 <p className="text-lg font-medium text-blue-100">Pour seulement 1.500 FCFA</p>
               </div>
 
-              <h4 className="text-2xl font-bold text-center mb-4">Nos Experts rédigent votre CV en moins de 24 heures</h4>
+              <h4 className="text-2xl font-bold text-center mb-4">
+                Nos Experts rédigent votre CV en moins de 24 heures
+              </h4>
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-start">
@@ -294,7 +277,9 @@ export default async function ArticlePage({ params }: PageParams) {
               </div>
 
               <div className="bg-white/20 p-3 rounded mb-6">
-                <p className="text-center text-sm font-bold">Augmentez vos chances d&apos;obtenir l&apos;emploi de vos rêves !</p>
+                <p className="text-center text-sm font-bold">
+                  Augmentez vos chances d&apos;obtenir l&apos;emploi de vos rêves !
+                </p>
               </div>
 
               <Link
@@ -311,7 +296,7 @@ export default async function ArticlePage({ params }: PageParams) {
             </div>
 
             {/* Second smaller ad */}
-            <div className="mt-6 bg-gray-100 p-5 rounded-lg border border-gray-200 shadow-sm">
+            <div className="bg-gray-100 p-5 rounded-lg border border-gray-200 shadow-sm">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center">
                   <div className="bg-blue-600 h-4 w-4 rounded-full mr-2"></div>
@@ -332,7 +317,7 @@ export default async function ArticlePage({ params }: PageParams) {
               </a>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </div>
   )
