@@ -240,10 +240,10 @@ export default async function ArticlePage({ params }: PageParams) {
               <div className="text-center mb-4">
                 <h3 className="text-xl font-bold uppercase tracking-wide">L&apos;EXPERT</h3>
                 <div className="h-0.5 w-16 bg-white mx-auto my-2"></div>
-                <p className="text-sm font-medium text-blue-100">Services professionnels</p>
+                <p className="text-lg font-medium text-blue-100">Pour seulement 1.500 FCFA</p>
               </div>
 
-              <h4 className="text-2xl font-bold text-center mb-4">Votre CV mérite l&apos;excellence</h4>
+              <h4 className="text-2xl font-bold text-center mb-4">Nos Experts rédigent votre CV en moins de 24 heures</h4>
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-start">
@@ -297,14 +297,13 @@ export default async function ArticlePage({ params }: PageParams) {
                 <p className="text-center text-sm font-bold">Augmentez vos chances d&apos;obtenir l&apos;emploi de vos rêves !</p>
               </div>
 
-              <a
-                href="https://lexpertpro.com"
-                target="_blank"
+              <Link
+                href="/"
                 rel="noopener noreferrer"
-                className="inline-block w-full py-3 bg-white text-blue-700 font-bold rounded-md hover:bg-blue-50 transition-colors shadow-md"
+                className="inline-block w-full py-3 bg-white text-blue-700 font-bold rounded-md hover:bg-blue-50 transition-colors shadow-md text-center"
               >
                 Découvrir nos services
-              </a>
+              </Link>
 
               <p className="text-xs text-center mt-4 text-blue-100">
                 Plus de 10 000 professionnels nous font confiance

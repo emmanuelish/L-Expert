@@ -27,6 +27,9 @@ const Navbar = () => {
 
           {/* Navigation Links - Visible on large screens */}
           <div className="hidden lg:flex items-center space-x-8">
+            <Link href="/" className="text-gray-600 hover:text-gray-900 font-bold">
+              Accueil
+            </Link>
             <Link href="/services" className="text-gray-600 hover:text-gray-900 font-bold">
               Nos Services
             </Link>
