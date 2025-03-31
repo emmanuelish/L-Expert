@@ -1,24 +1,18 @@
-"use client"
-
-import dynamic from "next/dynamic"
+import BlogPage from "@/components/BlogPage"
 import { BreadcrumbSchema } from "@/components/SchemaOrg"
 
-const HowItWorks = dynamic(() => import("@/components/HowItWorks"), { ssr: false })
-
-const page = () => {
+export default function BlogIndexPage() {
   // Breadcrumb data for schema
   const breadcrumbItems = [
     { name: "Accueil", url: "https://lexpertpro.com/" },
-    { name: "Comment Ça Marche", url: "https://lexpertpro.com/how-it-works" },
+    { name: "Blog", url: "https://lexpertpro.com/blog" },
   ]
 
   return (
-    <div>
+    <>
       <BreadcrumbSchema items={breadcrumbItems} />
-      <HowItWorks />
-    </div>
+      <BlogPage />
+    </>
   )
 }
-
-export default page
 
