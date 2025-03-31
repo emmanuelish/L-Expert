@@ -2,6 +2,12 @@
 
 import dynamic from "next/dynamic"
 import { BreadcrumbSchema } from "@/components/SchemaOrg"
+import { Metadata } from "next"
+
+export const metadata:Metadata = {
+  title: "À propos de L'Expert | Rédacteur de CV professionnels",
+  description: "L'Expert vous accompagne vers l'emploi idéal avec des CV et lettres de motivation sur mesure. Service rapide, résultats garantis et livraison en 24h."
+}
 
 const About = dynamic(() => import("@/components/About"), { ssr: false })
 

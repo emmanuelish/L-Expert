@@ -14,8 +14,19 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "L'Expert - CV et lettres de motivation personnalisés en 24h",
-  description: "Service de rédaction professionnelle de CV et lettres de motivation, livrés en moins de 24 heures",
-}
+  description: "En moins de 24h, L'Expert vous offre un CV et une lettre de motivation sur mesure, rédigés par des professionnels pour booster votre carrière. ",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1.0,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  other: {
+    'charset': 'UTF-8',
+  },
+};
 
 export default function RootLayout({
   children,
