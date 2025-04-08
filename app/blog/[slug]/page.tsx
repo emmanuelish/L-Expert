@@ -26,16 +26,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
     title: article.title,
     description: `Article par ${article.author} sur ${article.category}`,
     openGraph: {
-      title: article.title,
       description: `Article par ${article.author} sur ${article.category}`,
-      images: [
-        {
-          url: article.image,
-          width: 1200,
-          height: 630,
-          alt: article.alt,
-        },
-      ],
       type: "article",
       publishedTime: article.date,
       authors: [article.author],
