@@ -28,7 +28,7 @@ export default function PricingSection() {
     Étudiant: [
       {
         name: "Lettre de Motivation",
-        price: "1.500FCFA",
+        price: "2.000FCFA",
         description: "Lettre de motivation convaincante mettant en valeur vos résultats académiques",
         features: [
           "ATS-optimized format",
@@ -42,7 +42,7 @@ export default function PricingSection() {
       },
       {
         name: "CV",
-        price: "1.500FCFA",
+        price: "2.000FCFA",
         description: "Création d'un Curriculum Vitae professionnel adapté aux étudiants entrant sur le marché du travail",
         features: [
           "Personalized content",
@@ -56,7 +56,7 @@ export default function PricingSection() {
       },
       {
         name: "CV + Lettre de Motivation",
-        price: "2.500FCFA",
+        price: "3.500FCFA",
         description: "Dossier de candidature complet avec CV et lettre de motivation à un prix réduit",
         features: [
           "Everything in CV & LM packages",
@@ -72,7 +72,7 @@ export default function PricingSection() {
     Particulier: [
       {
         name: "Lettre de Motivation",
-        price: "3.500FCFA",
+        price: "4.500FCFA",
         description: "Lettre de motivation convaincante mettant en valeur votre expérience professionnelle",
         features: [
           "ATS-optimized format",
@@ -86,7 +86,7 @@ export default function PricingSection() {
       },
       {
         name: "CV",
-        price: "3.500FCFA",
+        price: "4.500FCFA",
         description: "Création d'un CV professionnel pour les professionnels expérimentés",
         features: [
           "Personalized content",
@@ -100,7 +100,7 @@ export default function PricingSection() {
       },
       {
         name: "CV + Lettre de Motivation",
-        price: "6.500FCFA",
+        price: "7.500FCFA",
         description: "Dossier de candidature complet avec CV et lettre de motivation à un prix réduit",
         features: [
           "Everything in CV & LM packages",
