@@ -6,8 +6,13 @@ import {
 } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { getAuth } from "firebase-admin/auth";
-import { getStorage } from "firebase-admin/storage";
-import serviceAccount from "./firebase-admin-service-key.json";
+
+// Service account configuration from environment variables
+const serviceAccount: ServiceAccount = {
+  projectId: process.env.FIREBASE_PROJECT_ID || "lexpert-397f7",
+  privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+  clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+};
 
 // Check if Firebase Admin is already initialized
 const apps = getApps();
@@ -17,9 +22,17 @@ if (!apps.length) {
   // Check if running in a Node.js environment (server-side)
   if (typeof process !== "undefined") {
     try {
-      initializeApp({
-        credential: cert(serviceAccount as ServiceAccount),
-      });
+      // Only initialize if we have the required environment variables
+      if (serviceAccount.privateKey && serviceAccount.clientEmail) {
+        initializeApp({
+          credential: cert(serviceAccount),
+        });
+      } else {
+        console.warn(
+          "Firebase Admin SDK not initialized: Missing environment variables"
+        );
+        console.warn("Required: FIREBASE_PRIVATE_KEY, FIREBASE_CLIENT_EMAIL");
+      }
     } catch (error) {
       console.error("Firebase admin initialization error", error);
     }
@@ -30,7 +43,6 @@ if (!apps.length) {
   }
 }
 
-// Export Firestore, Auth, and Storage instances
+// Export Firestore and Auth instances
 export const adminDb = getFirestore();
 export const adminAuth = getAuth();
-export const adminStorage = getStorage();
