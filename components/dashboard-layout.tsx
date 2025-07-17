@@ -4,15 +4,7 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  LayoutDashboard,
-  Briefcase,
-  Users,
-  Settings,
-  LogOut,
-  Menu,
-  X,
-} from "lucide-react";
+import { LayoutDashboard, Briefcase, LogOut, Menu, X } from "lucide-react";
 import type { User } from "@/lib/schemas";
 import { useAuth } from "@/context/auth-context";
 import { useRouter } from "next/navigation";
@@ -34,8 +26,6 @@ export function DashboardLayout({ children, user }: DashboardLayoutProps) {
       icon: LayoutDashboard,
     },
     { name: "Offres d'emploi", href: "/admin/dashboard/jobs", icon: Briefcase },
-    { name: "Utilisateurs", href: "/admin/dashboard/users", icon: Users },
-    { name: "Paramètres", href: "/admin/dashboard/settings", icon: Settings },
   ];
 
   if (user.role !== "admin") {
@@ -82,7 +72,7 @@ export function DashboardLayout({ children, user }: DashboardLayoutProps) {
               <span className="text-white font-bold text-sm">L</span>
             </div>
             <span className="text-xl font-bold text-gray-800">
-              L&apos;Expert Pro
+              L&apos;Expert
             </span>
           </div>
           <button

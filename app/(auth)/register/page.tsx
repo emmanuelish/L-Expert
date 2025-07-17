@@ -12,9 +12,9 @@ import { Eye, EyeOff, User, Mail, Lock, ArrowRight } from "lucide-react";
 import { useAuth } from "@/context/auth-context";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { createUser as createUserInFirestore } from "@/services/firebaseServerServices";
+import { createUser as createUserInFirestore } from "@/services/firebaseClientServices";
 import { useRouter } from "next/navigation";
-import { getUserById } from "@/services/firebaseServerServices";
+import { getUserById } from "@/services/firebaseClientServices";
 
 export default function RegisterPage() {
   const { isFetching } = useAuth();
@@ -94,7 +94,7 @@ export default function RegisterPage() {
           Créer un compte
         </h1>
         <p className="text-gray-600">
-          Rejoignez L&apos;Expert Pro pour booster votre carrière
+          Rejoignez L&apos;Expert pour booster votre carrière
         </p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-6">

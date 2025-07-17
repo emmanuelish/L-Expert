@@ -23,18 +23,24 @@ export interface User {
 }
 
 export interface JobOffer {
+  isPublished: boolean;
   id: string;
+  slug: string;
   title: string;
   subtitle: string;
   company: string;
   location: string;
+  startDate?: string;
+  deadline?: string;
+  workplace?: string;
   salary: string;
   type: "CDI" | "CDD" | "Stage" | "Freelance";
   introduction: string;
-  description: string;
+  missions: string;
+  profile: string;
   paragraphs: string[];
   bulletPoints: string[];
-  conclusion: string;
+  paragraphTitles: string[];
   bannerImage?: string;
   images: string[];
   requirements: string[];

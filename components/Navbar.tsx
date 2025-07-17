@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Menu, X, User } from "lucide-react";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const handleClick = () => window.open("https://wa.me/22891989046", "_blank");
 
@@ -27,37 +27,63 @@ const Navbar = () => {
 
           {/* Navigation Links - Visible on large screens */}
           <div className="hidden lg:flex items-center space-x-8">
-            <Link href="/" className="text-gray-600 hover:text-gray-900 font-bold">
+            <Link
+              href="/"
+              className="text-gray-600 hover:text-gray-900 font-bold"
+            >
               Accueil
             </Link>
-            <Link href="/services" className="text-gray-600 hover:text-gray-900 font-bold">
+            <Link
+              href="/services"
+              className="text-gray-600 hover:text-gray-900 font-bold"
+            >
               Nos Services
             </Link>
-            <Link href="/pricing" className="text-gray-600 hover:text-gray-900 font-bold">
+            <Link
+              href="/pricing"
+              className="text-gray-600 hover:text-gray-900 font-bold"
+            >
               Tarifs
             </Link>
-            <Link href="/how-it-works" className="text-gray-600 hover:text-gray-900 font-bold">
+            <Link
+              href="/how-it-works"
+              className="text-gray-600 hover:text-gray-900 font-bold"
+            >
               Comment Ça Marche
             </Link>
-            <Link href="/about" className="text-gray-600 hover:text-gray-900 font-bold">
+            <Link
+              href="/about"
+              className="text-gray-600 hover:text-gray-900 font-bold"
+            >
               À propos
             </Link>
-            <Link href="/blog" className="text-gray-600 hover:text-gray-900 font-bold">
+            <Link
+              href="/blog"
+              className="text-gray-600 hover:text-gray-900 font-bold"
+            >
               Blog
             </Link>
           </div>
 
           {/* CTA Buttons and Hamburger */}
           <div className="flex items-center space-x-4">
-            <Button className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-6 py-2 rounded-full"
+            <Button
+              className="bg-[#2D1155] hover:bg-[#1D0B3B] text-white px-6 py-2 rounded-full"
               onClick={handleClick}
             >
               Commander
             </Button>
-            
+            {/* Profile/Login Icon - Desktop */}
+            <Link
+              href="/login"
+              className="hidden lg:inline-flex items-center justify-center p-2 rounded-full hover:bg-gray-100"
+              aria-label="Login"
+            >
+              <User size={24} color="black" />
+            </Link>
             {/* Hamburger Menu Button - Only visible below lg breakpoint */}
-            <button 
-              className="lg:hidden text-[#2D1155] focus:outline-none" 
+            <button
+              className="lg:hidden text-[#2D1155] focus:outline-none"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
@@ -70,47 +96,57 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="lg:hidden bg-white py-4 border-t">
             <div className="flex flex-col space-y-4 px-4">
-              <Link 
-                href="/services" 
+              <Link
+                href="/services"
                 className="text-gray-600 hover:text-gray-900 font-bold py-2 text-center"
                 onClick={handleHamburgerClick}
               >
                 Nos Services
               </Link>
-              <Link 
-                href="/pricing" 
+              <Link
+                href="/pricing"
                 className="text-gray-600 hover:text-gray-900 font-bold py-2 text-center"
                 onClick={handleHamburgerClick}
               >
                 Tarifs
               </Link>
-              <Link 
-                href="/how-it-works" 
+              <Link
+                href="/how-it-works"
                 className="text-gray-600 hover:text-gray-900 font-bold py-2 text-center"
                 onClick={handleHamburgerClick}
               >
                 Comment Ça Marche
               </Link>
-              <Link 
-                href="/about" 
+              <Link
+                href="/about"
                 className="text-gray-600 hover:text-gray-900 font-bold py-2 text-center"
                 onClick={handleHamburgerClick}
               >
                 À propos
               </Link>
-              <Link 
-                href="/blog" 
+              <Link
+                href="/blog"
                 className="text-gray-600 hover:text-gray-900 font-bold py-2 text-center"
                 onClick={handleHamburgerClick}
               >
                 Blog
+              </Link>
+              {/* Profile/Login Icon - Mobile */}
+              <Link
+                href="/auth/login"
+                className="flex items-center justify-center py-2 text-gray-600 hover:text-gray-900 font-bold"
+                onClick={handleHamburgerClick}
+                aria-label="Login"
+              >
+                <User size={24} />
+                <span className="ml-2">Se connecter</span>
               </Link>
             </div>
           </div>
         )}
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

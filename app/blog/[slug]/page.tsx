@@ -1,25 +1,28 @@
-import Image from "next/image"
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import type { Metadata } from "next"
-import { articles, featuredArticle } from "@/lib/data/articles"
-import { slugify, getArticleBySlug } from "@/lib/utils"
-import { ArticleSchema, BreadcrumbSchema } from "@/components/SchemaOrg"
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { articles, featuredArticle } from "@/lib/data/articles";
+import { slugify, getBlogArticleBySlug } from "@/lib/utils";
+import { ArticleSchema, BreadcrumbSchema } from "@/components/SchemaOrg";
 
 type PageParams = {
-  params: Promise<{ slug: string }>
-}
+  params: Promise<{ slug: string }>;
+};
 
 // Generate metadata for the page
-export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
-  const { slug } = await params
-  const article = getArticleBySlug([featuredArticle, ...articles], slug)
+export async function generateMetadata({
+  params,
+}: PageParams): Promise<Metadata> {
+  const { slug } = await params;
+  const article = getBlogArticleBySlug([featuredArticle, ...articles], slug);
 
   if (!article) {
     return {
       title: "Article introuvable",
-      description: "L'article que vous recherchez n'existe pas ou a été déplacé.",
-    }
+      description:
+        "L'article que vous recherchez n'existe pas ou a été déplacé.",
+    };
   }
 
   return {
@@ -41,21 +44,21 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
       authors: [article.author],
       tags: [article.category],
     },
-  }
+  };
 }
 
 export function generateStaticParams() {
   return [featuredArticle, ...articles].map((article) => ({
     slug: slugify(article.title),
-  }))
+  }));
 }
 
 export default async function ArticlePage({ params }: PageParams) {
-  const { slug } = await params
-  const article = getArticleBySlug([featuredArticle, ...articles], slug)
+  const { slug } = await params;
+  const article = getBlogArticleBySlug([featuredArticle, ...articles], slug);
 
   if (!article) {
-    notFound()
+    notFound();
   }
 
   // Format date for Schema.org (assuming article.date is in format "DD MMMM YYYY" in French)
@@ -74,34 +77,42 @@ export default async function ArticlePage({ params }: PageParams) {
       octobre: "10",
       novembre: "11",
       décembre: "12",
-    }
+    };
 
-    const parts = dateStr.split(" ")
+    const parts = dateStr.split(" ");
     if (parts.length === 3) {
-      const day = parts[0].padStart(2, "0")
-      const month = months[parts[1].toLowerCase()] || "01"
-      const year = parts[2]
-      return `${year}-${month}-${day}`
+      const day = parts[0].padStart(2, "0");
+      const month = months[parts[1].toLowerCase()] || "01";
+      const year = parts[2];
+      return `${year}-${month}-${day}`;
     }
-    return new Date().toISOString().split("T")[0] // Fallback to current date
-  }
+    return new Date().toISOString().split("T")[0]; // Fallback to current date
+  };
 
   // Prepare breadcrumb data
   const breadcrumbItems = [
     { name: "Accueil", url: "https://lexpertpro.com/" },
     { name: "Blog", url: "https://lexpertpro.com/blog" },
-    { name: article.category, url: `https://lexpertpro.com/blog?category=${slugify(article.category)}` },
+    {
+      name: article.category,
+      url: `https://lexpertpro.com/blog?category=${slugify(article.category)}`,
+    },
     { name: article.title, url: `https://lexpertpro.com/blog/${slug}` },
-  ]
+  ];
 
   // Extract a description from the article content if available
   const getArticleDescription = () => {
     if (article.content && article.content.length > 0) {
-      const firstParagraph = article.content.find((section) => section.paragraphe)?.paragraphe
-      return firstParagraph || `Article sur ${article.category} par ${article.author}`
+      const firstParagraph = article.content.find(
+        (section) => section.paragraphe
+      )?.paragraphe;
+      return (
+        firstParagraph ||
+        `Article sur ${article.category} par ${article.author}`
+      );
     }
-    return `Article sur ${article.category} par ${article.author}`
-  }
+    return `Article sur ${article.category} par ${article.author}`;
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -127,7 +138,10 @@ export default async function ArticlePage({ params }: PageParams) {
           Blog
         </Link>
         <span className="mx-2">•</span>
-        <Link href={`/blog?category=${slugify(article.category)}`} className="hover:text-blue-500">
+        <Link
+          href={`/blog?category=${slugify(article.category)}`}
+          className="hover:text-blue-500"
+        >
           {article.category}
         </Link>
       </div>
@@ -138,15 +152,25 @@ export default async function ArticlePage({ params }: PageParams) {
         <div className="lg:col-span-2">
           {/* Article Header */}
           <div className="mb-8">
-            {article.title && <h1 className="text-3xl md:text-4xl font-bold mb-4">{article.title}</h1>}
+            {article.title && (
+              <h1 className="text-3xl md:text-4xl font-bold mb-4">
+                {article.title}
+              </h1>
+            )}
             <div className="flex items-center text-gray-500 mb-6">
-              {article.author && <span className="font-medium">{article.author}</span>}
-              {article.author && article.date && <span className="mx-2">•</span>}
+              {article.author && (
+                <span className="font-medium">{article.author}</span>
+              )}
+              {article.author && article.date && (
+                <span className="mx-2">•</span>
+              )}
               {article.date && <span>{article.date}</span>}
               {article.category && (
                 <>
                   <span className="mx-2">•</span>
-                  <span className="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">{article.category}</span>
+                  <span className="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">
+                    {article.category}
+                  </span>
                 </>
               )}
             </div>
@@ -170,8 +194,14 @@ export default async function ArticlePage({ params }: PageParams) {
             {article.content ? (
               article.content.map((section, index) => (
                 <div key={index} className="mb-8">
-                  {section.sousTitre && <h2 className="text-2xl font-bold mb-4">{section.sousTitre}</h2>}
-                  {section.paragraphe && <p className="mb-4">{section.paragraphe}</p>}
+                  {section.sousTitre && (
+                    <h2 className="text-2xl font-bold mb-4">
+                      {section.sousTitre}
+                    </h2>
+                  )}
+                  {section.paragraphe && (
+                    <p className="mb-4">{section.paragraphe}</p>
+                  )}
 
                   {section.bulletPoints && section.bulletPoints.length > 0 && (
                     <ul className="list-disc pl-6 mb-4">
@@ -194,7 +224,9 @@ export default async function ArticlePage({ params }: PageParams) {
                         />
                       </div>
                       {section.caption && (
-                        <p className="text-sm text-gray-500 text-center mt-2 italic">{section.caption}</p>
+                        <p className="text-sm text-gray-500 text-center mt-2 italic">
+                          {section.caption}
+                        </p>
                       )}
                     </div>
                   )}
@@ -203,7 +235,9 @@ export default async function ArticlePage({ params }: PageParams) {
                     <blockquote className="border-l-4 border-blue-500 pl-4 italic my-6">
                       <p className="text-gray-700">{section.citation.text}</p>
                       {section.citation.author && (
-                        <footer className="text-sm text-gray-500 mt-2">— {section.citation.author}</footer>
+                        <footer className="text-sm text-gray-500 mt-2">
+                          — {section.citation.author}
+                        </footer>
                       )}
                     </blockquote>
                   )}
@@ -219,19 +253,26 @@ export default async function ArticlePage({ params }: PageParams) {
             ) : (
               <div>
                 <p className="mb-4">
-                  Cet article est en cours de rédaction. Revenez bientôt pour découvrir son contenu complet.
+                  Cet article est en cours de rédaction. Revenez bientôt pour
+                  découvrir son contenu complet.
                 </p>
-                <p>En attendant, n&apos;hésitez pas à consulter nos autres articles sur {article.category}.</p>
+                <p>
+                  En attendant, n&apos;hésitez pas à consulter nos autres
+                  articles sur {article.category}.
+                </p>
               </div>
             )}
           </div>
 
           {/* Author Bio */}
           <div className="mt-12 p-6 bg-gray-50 rounded-lg">
-            <h3 className="text-lg font-semibold mb-2">À propos de l&apos;auteur</h3>
+            <h3 className="text-lg font-semibold mb-2">
+              À propos de l&apos;auteur
+            </h3>
             <p className="text-gray-600">
-              {article.author} est un expert en {article.category.toLowerCase()}. Avec plusieurs années
-              d&apos;expérience dans le domaine, il partage régulièrement ses connaissances et conseils pour aider les
+              {article.author} est un expert en {article.category.toLowerCase()}
+              . Avec plusieurs années d&apos;expérience dans le domaine, il
+              partage régulièrement ses connaissances et conseils pour aider les
               professionnels à développer leur carrière.
             </p>
           </div>
@@ -242,11 +283,17 @@ export default async function ArticlePage({ params }: PageParams) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {articles
                 .filter(
-                  (relatedArticle) => relatedArticle.category === article.category && relatedArticle.id !== article.id,
+                  (relatedArticle) =>
+                    relatedArticle.category === article.category &&
+                    relatedArticle.id !== article.id
                 )
                 .slice(0, 3)
                 .map((relatedArticle) => (
-                  <Link key={relatedArticle.id} href={`/blog/${slugify(relatedArticle.title)}`} className="group">
+                  <Link
+                    key={relatedArticle.id}
+                    href={`/blog/${slugify(relatedArticle.title)}`}
+                    className="group"
+                  >
                     <div className="border border-gray-200 rounded-lg overflow-hidden h-full">
                       <div className="relative h-40 overflow-hidden">
                         <Image
@@ -277,9 +324,13 @@ export default async function ArticlePage({ params }: PageParams) {
             {/* Ad Banner for L'Expert */}
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg shadow-lg border border-blue-400 mb-6">
               <div className="text-center mb-4">
-                <h3 className="text-xl font-bold uppercase tracking-wide">L&apos;EXPERT</h3>
+                <h3 className="text-xl font-bold uppercase tracking-wide">
+                  L&apos;EXPERT
+                </h3>
                 <div className="h-0.5 w-16 bg-white mx-auto my-2"></div>
-                <p className="text-lg font-medium text-blue-100">Pour seulement 1.500 FCFA</p>
+                <p className="text-lg font-medium text-blue-100">
+                  Pour seulement 1.500 FCFA
+                </p>
               </div>
 
               <h4 className="text-2xl font-bold text-center mb-4">
@@ -330,13 +381,16 @@ export default async function ArticlePage({ params }: PageParams) {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <p className="text-sm">Coaching pour entretiens d&apos;embauche</p>
+                  <p className="text-sm">
+                    Coaching pour entretiens d&apos;embauche
+                  </p>
                 </div>
               </div>
 
               <div className="bg-white/20 p-3 rounded mb-6">
                 <p className="text-center text-sm font-bold">
-                  Augmentez vos chances d&apos;obtenir l&apos;emploi de vos rêves !
+                  Augmentez vos chances d&apos;obtenir l&apos;emploi de vos
+                  rêves !
                 </p>
               </div>
 
@@ -360,10 +414,13 @@ export default async function ArticlePage({ params }: PageParams) {
                   <div className="bg-blue-600 h-4 w-4 rounded-full mr-2"></div>
                   <p className="font-semibold text-gray-800">Offre spéciale</p>
                 </div>
-                <span className="text-xs bg-red-500 text-white px-2 py-1 rounded-full">-15%</span>
+                <span className="text-xs bg-red-500 text-white px-2 py-1 rounded-full">
+                  -15%
+                </span>
               </div>
               <p className="text-sm text-gray-600 mb-4">
-                Profitez de 15% de réduction sur notre pack &quot;CV + Lettre de motivation&quot;
+                Profitez de 15% de réduction sur notre pack &quot;CV + Lettre de
+                motivation&quot;
               </p>
               <a
                 href="https://lexpertpro.com/promo"
@@ -378,6 +435,5 @@ export default async function ArticlePage({ params }: PageParams) {
         </aside>
       </div>
     </div>
-  )
+  );
 }
-

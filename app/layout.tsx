@@ -10,6 +10,7 @@ import GTMScript from "@/components/GTMScript";
 import Footer from "@/components/Footer";
 import { WebsiteSchema, OrganizationSchema } from "@/components/SchemaOrg";
 import { AuthContextProvider } from "@/context/auth-context";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,6 +40,10 @@ export default function RootLayout({
     <html lang="fr" className="overflow-x-hidden">
       <head>
         {/* Google Analytics */}
+        <Script
+          src="/scripts/chunk-error-reload.js"
+          strategy="beforeInteractive"
+        />
         <Script
           id="google-analytics-init"
           strategy="afterInteractive"
@@ -75,6 +80,7 @@ export default function RootLayout({
           <GTMScript />
           <DynamicNavbar />
           <div className="pt-16">{children}</div>
+          <Toaster />
           <Footer />
           <DynamicWhatsAppButton />
           <Analytics />

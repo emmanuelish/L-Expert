@@ -13,7 +13,7 @@ import { useAuth } from "@/context/auth-context";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
-import { getUserById } from "@/services/firebaseServerServices";
+import { getUserById } from "@/services/firebaseClientServices";
 
 export default function LoginPage() {
   const { isAuth, isFetching, user } = useAuth();
@@ -71,7 +71,7 @@ export default function LoginPage() {
       <div className="text-center mb-8">
         <h1 className="text-2xl font-bold text-gray-800 mb-2">Bon retour !</h1>
         <p className="text-gray-600">
-          Connectez-vous à votre compte L&apos;Expert Pro
+          Connectez-vous à votre compte L&apos;Expert
         </p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-6">
