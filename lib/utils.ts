@@ -29,7 +29,7 @@ export function slugify(text: string): string {
 /**
  * Finds an article by its slug
  */
-export function getArticleBySlug(
+export function getBlogArticleBySlug(
   articles: Article[],
   slug: string
 ): Article | undefined {

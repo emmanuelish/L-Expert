@@ -19,7 +19,7 @@ import {
   createUser,
   updateUserProfile as updateUserProfileService,
   updateUserEmail as updateUserEmailService,
-} from "@/services/firebaseServerServices";
+} from "@/services/firebaseClientServices";
 
 interface AuthContextType {
   user: User | null;
